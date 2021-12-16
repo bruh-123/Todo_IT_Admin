@@ -6,9 +6,10 @@ import { ViajesComponent } from './pages/viajes/viajes.component';
 import { HistorialComponent } from './pages/historial/historial.component';
 import { ListasComponent } from './pages/listas/listas.component';
 import { NotFoundComponent } from '../shared/components/not-found/not-found.component';
+import { AdminGuard } from '../shared/guards/admin.guard';
 
 const routes: Routes = [{
-  path: '', component: AdminComponent, children: [
+  path: '', component: AdminComponent,canActivateChild:[AdminGuard], children: [
     { path: 'registro', component: RegistroComponent },
     { path: 'viajes', component: ViajesComponent },
     { path: 'historial', component: HistorialComponent },
