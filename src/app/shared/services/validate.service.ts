@@ -15,7 +15,7 @@ export class ValidateService {
   constructor(private http: HttpClient) {}
   login(email: string, password: string): Observable<User> {
     return this.http
-      .get<User>(`api/Login?email=${email}&password${password}`)
+      .get<User>(`api/Login?email=${email}&password=${password}`)
       .pipe(
         tap((res) => {
           if (res.rol.id == 1) {

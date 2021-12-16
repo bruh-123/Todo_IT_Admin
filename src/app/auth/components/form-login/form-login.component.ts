@@ -34,7 +34,7 @@ export class FormLoginComponent implements OnInit {
       .login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe({
         next: () => {
-          this.router.navigateByUrl('/registro');
+          this.router.navigateByUrl('/admin/registro');
         },
         error: (e) => {
           this.isLoading = false;

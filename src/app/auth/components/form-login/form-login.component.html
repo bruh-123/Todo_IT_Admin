@@ -1,3 +1,4 @@
+<app-spinner *ngIf="isLoading" [diameter]=100 ></app-spinner>
 <mat-card *ngIf="!isLoading" class="login-form">
   <form class="form" [formGroup]="loginForm" (ngSubmit)="ingresar()">
     <!-- <img
@@ -9,7 +10,7 @@
     <!-- ------EMAIL -->
     <mat-form-field class="field" appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput autocomplete="off" formControlName="email" />
+      <input matInput formControlName="email" />
       <mat-icon matSuffix>alternate_email</mat-icon>
     </mat-form-field>
     <!-- ---------PASSWORD -->
