@@ -7,17 +7,14 @@ import { MaterialAdminModule } from './material-admin.module';
 import { PagesAdminModule } from './pages/pages-admin.module';
 import { ComponentsAdminModule } from './components/components-admin.module';
 
-
 @NgModule({
-  declarations: [
-    AdminComponent
-  ],
+  declarations: [AdminComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     MaterialAdminModule,
     PagesAdminModule,
-    ComponentsAdminModule
-  ]
+    ComponentsAdminModule,
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}

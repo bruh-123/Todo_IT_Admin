@@ -13,7 +13,7 @@ const routes: Routes = [{
     { path: 'viajes', component: ViajesComponent },
     { path: 'historial', component: HistorialComponent },
     { path: 'listas', component: ListasComponent },
-    { path: '', redirectTo: 'registro' },
+    { path: '', redirectTo: 'registro',pathMatch:'full' },
     {path:'**',component:NotFoundComponent}
 ] }];
 

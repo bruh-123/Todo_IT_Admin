@@ -1,1 +1,33 @@
-<p>form-login works!</p>
+<mat-card *ngIf="!isLoading" class="login-form">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="ingresar()">
+    <!-- <img
+      src="../../../../assets/delivery2.png"
+      alt="delivery picture"
+      width="50%"
+    /> -->
+    <h1>Login</h1>
+    <!-- ------EMAIL -->
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput autocomplete="off" formControlName="email" />
+      <mat-icon matSuffix>alternate_email</mat-icon>
+    </mat-form-field>
+    <!-- ---------PASSWORD -->
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input
+        [type]="hide ? 'password' : 'text'"
+        matInput
+        autocomplete="off"
+        formControlName="password"
+      />
+      <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+        <mat-icon>{{ hide ? "visibility" : "visibility_off" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <!-- ---------SUBMMIT -->
+    <button type="submit" mat-raised-button class="btn" color="primary">
+      Iniciar Sesión
+    </button>
+  </form>
+</mat-card>
