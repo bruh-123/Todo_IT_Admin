@@ -1,0 +1,32 @@
+<mat-toolbar class="toolbar">
+  <!-- <img class="logo" src="../../../../assets/logo2.png" alt="Todo IT logo" /> -->
+  <button class="menu-btn" mat-raised-button aria-label="menu button">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <a
+    [routerLink]="['registro']"
+    routerLinkActive="router-link-active"
+    class="link"
+    >Registro</a
+  >
+  <a
+    [routerLink]="['viajes']"
+    routerLinkActive="router-link-active"
+    class="link"
+    >Viajes</a
+  >
+  <a
+    [routerLink]="['historial']"
+    routerLinkActive="router-link-active"
+    class="link"
+    >Historial</a
+  >
+  <a
+    [routerLink]="['listas']"
+    routerLinkActive="router-link-active"
+    class="link"
+    >Listas</a
+  >
+  <a (click)="logout()" mat-button class="link">Cerrar Sesión</a>
+</mat-toolbar>

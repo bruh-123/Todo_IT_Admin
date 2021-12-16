@@ -17,6 +17,7 @@ import { ComponentsAdminModule } from '../components/components-admin.module';
   ],
   imports: [
     CommonModule,ComponentsAdminModule
-  ]
+  ],
+  exports:[ComponentsAdminModule]
 })
 export class PagesAdminModule { }
