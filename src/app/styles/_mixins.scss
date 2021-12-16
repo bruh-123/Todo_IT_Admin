@@ -1,0 +1,34 @@
+@use "./variables" as *;
+@use "./functions" as *;
+
+
+@mixin flex-center($direction: column) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin main {
+  min-height: 100vh;
+  background-color: $third;
+}
+
+@mixin btn-first {
+  background-color: $first;
+  color: white;
+    &:hover{
+      background-color: clr(first,ligth);
+    }
+}
+@mixin btn-second {
+  background-color: $second;
+  color: clr(first,dark);
+    &:hover{
+      background-color: clr(second,dark);
+    }
+}
+
+@mixin font-weight {
+  font-weight: 500;
+}
