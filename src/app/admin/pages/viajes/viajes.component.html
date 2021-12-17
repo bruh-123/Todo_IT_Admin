@@ -1,1 +1,26 @@
-<p>viajes works!</p>
+<mat-tab-group class="viajes" dynamicHeight mat-align-tabs="center">
+  <mat-tab label="Activos">
+    <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
+    <app-tabla
+      *ngIf="!isLoading"
+      [displayedColumns]="columnasViajes"
+      [data]="viajesActivos"
+    ></app-tabla>
+  </mat-tab>
+  <mat-tab label="Pendientes">
+    <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
+    <app-tabla
+      *ngIf="!isLoading"
+      [displayedColumns]="columnasViajes"
+      [data]="viajesPendientes"
+    ></app-tabla>
+  </mat-tab>
+  <mat-tab label="En curso">
+    <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
+    <app-tabla
+      *ngIf="!isLoading"
+      [displayedColumns]="columnasViajes"
+      [data]="viajesCurso"
+    ></app-tabla>
+  </mat-tab>
+</mat-tab-group>
