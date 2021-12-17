@@ -1,0 +1,67 @@
+<app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
+<mat-card *ngIf="!isLoading">
+  <form [formGroup]="signupForm" (ngSubmit)="registrar()" #myForm="ngForm">
+    <!-- ---------ROL -->
+    <mat-form-field appearance="fill">
+      <mat-label>Rol del usuario</mat-label>
+      <mat-select formControlName="rol" name="food">
+        <mat-option [value]="2">Cadete</mat-option>
+        <mat-option [value]="3">Cliente</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- ---------NOMBRE -->
+    <mat-form-field>
+      <mat-label>Nombre Completo</mat-label>
+      <input matInput formControlName="fullName" />
+    </mat-form-field>
+    <!-- ---------EMAIL -->
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-icon matSuffix>alternate_email</mat-icon>
+    </mat-form-field>
+    <!-- ---------CONTRASEÑA -->
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input
+        [type]="hide ? 'password' : 'text'"
+        matInput
+        autocomplete="off"
+        formControlName="password"
+      />
+      <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+        <mat-icon matSuffix>{{ hide ? "visibility" : "visibility_off" }}</mat-icon>
+      </button>
+      
+    </mat-form-field>
+
+    <!-- ---------DIRECCION -->
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Dirección</mat-label>
+      <input matInput formControlName="address" />
+    </mat-form-field>
+    <!-- ---------TELEFONO -->
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Teléfono</mat-label>
+      <span matPrefix>+54 &nbsp;</span>
+      <input matInput formControlName="cellPhone" placeholder="01123456789" />
+    </mat-form-field>
+    <!-- ---------VEHICULO -->
+    <mat-form-field appearance="fill">
+      <mat-label>Vehiculo</mat-label>
+      <mat-select
+        [disabled]="rolControl.value == 3"
+        formControlName="vehicle"
+        name="food"
+      >
+        <mat-option value="Motocicleta">motocicleta</mat-option>
+        <mat-option value="Automovil">automovil</mat-option>
+        <mat-option value="Bicicleta">bicicleta</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="button" mat-raised-button (click)="clearForm()">
+      cancelar
+    </button>
+    <button type="submit" mat-raised-button>aceptar</button>
+  </form>
+</mat-card>

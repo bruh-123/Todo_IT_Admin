@@ -1,4 +1,5 @@
 import { Rol } from './rol';
+import { Vehicle } from './vehicle';
 
 export interface User {
   id: number;
@@ -9,7 +10,7 @@ export interface User {
   cellPhone: string;
   isAccepted: boolean;
   isDeleted: boolean;
-  observations?: string;
-  vehicle: string;
+  observations: string;
+  vehicle: Vehicle|null;
   rol: Rol;
 }
