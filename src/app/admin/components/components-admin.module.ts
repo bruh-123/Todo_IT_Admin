@@ -7,11 +7,15 @@ import { FormRegistroComponent } from './form-registro/form-registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentsSharedModule } from '../../shared/components/components-shared.module';
 import { TablaComponent } from './tabla/tabla.component';
-
-
+import { EstadoPipe } from '../pipes/estado';
 
 @NgModule({
-  declarations: [HeaderComponent, FormRegistroComponent, TablaComponent],
+  declarations: [
+    HeaderComponent,
+    FormRegistroComponent,
+    TablaComponent,
+    EstadoPipe,
+  ],
   imports: [
     CommonModule,
     MaterialAdminModule,
@@ -24,7 +28,8 @@ import { TablaComponent } from './tabla/tabla.component';
     HeaderComponent,
     FormRegistroComponent,
     TablaComponent,
-    ComponentsSharedModule
+    ComponentsSharedModule,
+    EstadoPipe,
   ],
 })
 export class ComponentsAdminModule {}
