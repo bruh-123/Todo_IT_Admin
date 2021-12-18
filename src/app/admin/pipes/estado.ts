@@ -19,6 +19,8 @@ export class EstadoPipe implements PipeTransform {
       case '7':
         return 'A Entregar';
       case '8':
+        return 'Entrega a confirmar';
+      case '9':
         return 'Entregado';
       default:
         return '-';

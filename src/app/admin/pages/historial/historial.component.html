@@ -1,1 +1,2 @@
-<p>historial works!</p>
+<app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
+<app-tabla *ngIf="!isLoading" [displayedColumns]="columnasHistorial" [data]="viajesHistorial" ></app-tabla>
