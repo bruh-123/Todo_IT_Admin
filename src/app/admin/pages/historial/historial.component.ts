@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Travel } from '../../../shared/interfaces/travels';
 import { AlertService } from '../../../shared/services/alert.service';
-import { TravelsService } from '../../../shared/services/travels.service';
+import { TravelsService } from '../../services/travels.service';
 
 @Component({
   selector: 'app-historial',
