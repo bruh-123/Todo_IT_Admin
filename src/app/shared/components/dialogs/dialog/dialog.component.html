@@ -1,0 +1,37 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<form *ngIf="!isLoading" [formGroup]="editForm" (ngSubmit)="editar()">
+  <!-- ---------NOMBRE -->
+  <mat-form-field>
+    <mat-label>Nombre Completo</mat-label>
+    <input matInput formControlName="fullName" />
+  </mat-form-field>
+  <!-- ---------EMAIL -->
+  <mat-form-field class="field" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" value="bruno@gmail" />
+    <mat-icon matSuffix>alternate_email</mat-icon>
+  </mat-form-field>
+
+  <!-- ---------DIRECCION -->
+  <mat-form-field class="field" appearance="fill">
+    <mat-label>Dirección</mat-label>
+    <input matInput formControlName="address" />
+  </mat-form-field>
+  <!-- ---------TELEFONO -->
+  <mat-form-field class="field" appearance="fill">
+    <mat-label>Teléfono</mat-label>
+    <span matPrefix>+54 &nbsp;</span>
+    <input matInput formControlName="cellPhone" placeholder="01123456789" />
+  </mat-form-field>
+  <!-- ---------VEHICULO -->
+  <mat-form-field appearance="fill" *ngIf="data.rol.id == 2">
+    <mat-label>Vehiculo</mat-label>
+    <mat-select formControlName="vehicleName">
+      <mat-option value="Bicicleta">bicicleta</mat-option>
+      <mat-option value="Motocicleta">motocicleta</mat-option>
+      <mat-option value="Automovil">automovil</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button type="button" mat-raised-button (click)="cancelar()">cancelar</button>
+  <button type="submit" mat-raised-button>aceptar</button>
+</form>

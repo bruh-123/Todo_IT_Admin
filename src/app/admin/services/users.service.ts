@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/shared/interfaces/users';
-import { filter, map, Observable, forkJoin } from 'rxjs';
+import { filter, map, Observable, forkJoin, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
   constructor(private http: HttpClient) {}
-  User(rol:number): Observable<User[]> {
+  private _refreshUsers$ = new Subject<void>();
+  get refreshUsers$() {
+    return this._refreshUsers$;
+  }
+  User(rol: number): Observable<User[]> {
     return this.http
       .get<User[]>('api/Users?userOperation=1')
       .pipe(map((i) => i.filter((u) => u.rol.id == rol)));
@@ -16,6 +20,6 @@ export class UsersService {
   getUsers() {
     let cliente = this.User(3);
     let cadete = this.User(2);
-    return forkJoin([cliente,cadete])
+    return forkJoin([cliente, cadete]);
   }
 }

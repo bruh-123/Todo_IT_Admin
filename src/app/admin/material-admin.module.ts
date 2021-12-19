@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialSharedModule } from '../shared/material-shared.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSelectModule } from '@angular/material/select';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 
@@ -13,14 +13,12 @@ import { MatTableModule } from '@angular/material/table';
     CommonModule,
     MaterialSharedModule,
     MatToolbarModule,
-    MatSelectModule,
     MatTabsModule,
     MatTableModule,
   ],
   exports: [
     MaterialSharedModule,
     MatToolbarModule,
-    MatSelectModule,
     MatTabsModule,
     MatTableModule,
   ],

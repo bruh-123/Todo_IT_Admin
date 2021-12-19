@@ -2,92 +2,87 @@
   <!-- ------------CLIENTE -->
   <ng-container matColumnDef="cliente">
     <th mat-header-cell *matHeaderCellDef>Cliente</th>
-    <td mat-cell *matCellDef="let travel">
-      {{ dto(travel, 0).equipment.cliente.fullName }}
+    <td mat-cell *matCellDef="let data">
+      {{ dto(data, 0).equipment.cliente.fullName }}
     </td>
   </ng-container>
 
   <!-- -------------DIRECCION -->
   <ng-container matColumnDef="direccion">
     <th mat-header-cell *matHeaderCellDef>Direccion</th>
-    <td mat-cell *matCellDef="let travel">
-      {{ dto(travel, 0).equipment.cliente.address }}
+    <td mat-cell *matCellDef="let data">
+      {{ dto(data, 0).equipment.cliente.address }}
     </td>
   </ng-container>
 
   <!-- ------------ESTADO -->
   <ng-container matColumnDef="estado">
     <th mat-header-cell *matHeaderCellDef>Estado</th>
-    <td mat-cell *matCellDef="let travel">
-      {{ travel.lastStatusTravel | estado }}
+    <td mat-cell *matCellDef="let data">
+      {{ data.lastStatusdata | estado }}
     </td>
   </ng-container>
   <!-- ------------CADETE -->
   <ng-container matColumnDef="cadete">
     <th mat-header-cell *matHeaderCellDef>Cadete</th>
-    <td mat-cell *matCellDef="let travel">
-      {{ dto(travel, 1).cadete?.fullName ?? "sin cadete" }}
+    <td mat-cell *matCellDef="let data">
+      {{ dto(data, 1).cadete?.fullName ?? "sin cadete" }}
     </td>
   </ng-container>
   <!-- ------------FECHA -->
   <ng-container matColumnDef="fecha">
     <th mat-header-cell *matHeaderCellDef>Fecha</th>
-    <td mat-cell *matCellDef="let travel">
-      {{ dto(travel, 1).operationDate | date: "dd/MM/yy" }}
+    <td mat-cell *matCellDef="let data">
+      {{ dto(data, 1).operationDate | date: "dd/MM/yy" }}
     </td>
   </ng-container>
   <!-- ------------HORA -->
   <ng-container matColumnDef="hora">
     <th mat-header-cell *matHeaderCellDef>Hora</th>
-    <td mat-cell *matCellDef="let travel">
-      {{ dto(travel, 1).operationDate | date: "shortTime" }}
+    <td mat-cell *matCellDef="let data">
+      {{ dto(data, 1).operationDate | date: "shortTime" }}
     </td>
   </ng-container>
   <!-- ------------NOMBRE -->
   <ng-container matColumnDef="nombre">
     <th mat-header-cell *matHeaderCellDef>Nombre</th>
-    <td mat-cell *matCellDef="let travel">{{ travel.fullName }}</td>
+    <td mat-cell *matCellDef="let data">{{ data.fullName }}</td>
   </ng-container>
   <!-- ------------DIRECCION USER -->
   <ng-container matColumnDef="direccionUser">
     <th mat-header-cell *matHeaderCellDef>Direccion</th>
-    <td mat-cell *matCellDef="let travel">{{ travel.address }}</td>
+    <td mat-cell *matCellDef="let data">{{ data.address }}</td>
   </ng-container>
   <!-- ------------APELLIDO -->
   <!-- <ng-container matColumnDef="apellido">
     <th mat-header-cell *matHeaderCellDef>Apellido</th>
-    <td mat-cell *matCellDef="let travel">{{ travel.fullName }}</td>
+    <td mat-cell *matCellDef="let data">{{ data.fullName }}</td>
   </ng-container> -->
 
   <!-- ------------TELEFONO -->
   <ng-container matColumnDef="telefono">
     <th mat-header-cell *matHeaderCellDef>Teléfono</th>
-    <td mat-cell *matCellDef="let travel">{{ travel.cellPhone }}</td>
+    <td mat-cell *matCellDef="let data">{{ data.cellPhone }}</td>
   </ng-container>
   <!-- ------------EMAIL -->
   <ng-container matColumnDef="email">
     <th mat-header-cell *matHeaderCellDef>Email</th>
-    <td mat-cell *matCellDef="let travel">{{ travel.email }}</td>
+    <td mat-cell *matCellDef="let data">{{ data.email }}</td>
   </ng-container>
   <!-- ------------VEHICULO -->
   <ng-container matColumnDef="vehiculo">
     <th mat-header-cell *matHeaderCellDef>Vehiculo</th>
-    <td mat-cell *matCellDef="let travel">{{ travel.vehicle?.name ?? "-" }}</td>
+    <td mat-cell *matCellDef="let data">{{ data.vehicle?.name ?? "-" }}</td>
   </ng-container>
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Actions</th>
-    <td mat-cell *matCellDef="let row">
-      <button mat-icon-button >
+    <td mat-cell *matCellDef="let data">
+      <button mat-icon-button (click)="openDialog(data)">
         <mat-icon>edit</mat-icon>
       </button>
     </td>
   </ng-container>
-  <!-- ------------Rol -->
-  <!-- <ng-container matColumnDef="rol">
-    <th mat-header-cell *matHeaderCellDef>Rol</th>
-    <td mat-cell *matCellDef="let travel">{{ travel.rol.id }}</td>
-  </ng-container> -->
-
+  
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>

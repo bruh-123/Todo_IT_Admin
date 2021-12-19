@@ -4,7 +4,7 @@
     <!-- ---------ROL -->
     <mat-form-field appearance="fill">
       <mat-label>Rol del usuario</mat-label>
-      <mat-select formControlName="rol" name="food">
+      <mat-select formControlName="rol">
         <mat-option [value]="2">Cadete</mat-option>
         <mat-option [value]="3">Cliente</mat-option>
       </mat-select>
@@ -17,7 +17,7 @@
     <!-- ---------EMAIL -->
     <mat-form-field class="field" appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" />
+      <input matInput formControlName="email" type="email" />
       <mat-icon matSuffix>alternate_email</mat-icon>
     </mat-form-field>
     <!-- ---------CONTRASEÑA -->
@@ -30,9 +30,10 @@
         formControlName="password"
       />
       <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
-        <mat-icon matSuffix>{{ hide ? "visibility" : "visibility_off" }}</mat-icon>
+        <mat-icon matSuffix>{{
+          hide ? "visibility" : "visibility_off"
+        }}</mat-icon>
       </button>
-      
     </mat-form-field>
 
     <!-- ---------DIRECCION -->
@@ -44,19 +45,24 @@
     <mat-form-field class="field" appearance="fill">
       <mat-label>Teléfono</mat-label>
       <span matPrefix>+54 &nbsp;</span>
-      <input matInput formControlName="cellPhone" placeholder="01123456789" />
+      <input
+        matInput
+        formControlName="cellPhone"
+        placeholder="01123456789"
+        type="tel"
+      />
     </mat-form-field>
     <!-- ---------VEHICULO -->
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" *ngIf="signupForm.value.rol==2">
       <mat-label>Vehiculo</mat-label>
       <mat-select
-        [disabled]="rolControl.value == 3"
-        formControlName="vehicle"
-        name="food"
+        
+        formControlName="vehiculo"
+        
       >
-        <mat-option value="Motocicleta">motocicleta</mat-option>
-        <mat-option value="Automovil">automovil</mat-option>
-        <mat-option value="Bicicleta">bicicleta</mat-option>
+      <mat-option [value]="1">bicicleta</mat-option>
+      <mat-option [value]="2">motocicleta</mat-option>
+      <mat-option [value]="3">automovil</mat-option>
       </mat-select>
     </mat-form-field>
     <button type="button" mat-raised-button (click)="clearForm()">

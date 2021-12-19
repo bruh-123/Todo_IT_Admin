@@ -36,7 +36,7 @@ export class FormRegistroComponent implements OnInit {
         '',
         [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)],
       ],
-      vehicle: [null],
+      vehiculo: [null],
     });
   }
   get form() {
@@ -80,8 +80,13 @@ export class FormRegistroComponent implements OnInit {
       vehicle:
         user.rol == 2
           ? {
-              id: 0,
-              name: user.vehicle,
+              id: user.vehiculo,
+              name:
+                user.vehiculo == 1
+                  ? 'Bicicleta'
+                  : user.vehiculo == 2
+                  ? 'Motocicleta'
+                  : 'Automóvil',
               isDeleted: 0,
             }
           : null,

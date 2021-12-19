@@ -1,5 +1,5 @@
 export interface Vehicle{
-   id: number,
+   id: number|null,
    name: string|null,
    isDeleted:number
 }

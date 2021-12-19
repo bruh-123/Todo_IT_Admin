@@ -18,7 +18,6 @@ export class ListasComponent implements OnInit {
     'email',
     'vehiculo',
     'actions'
-    // 'rol'
   ];
   dataClientes!: User[];
   dataCadetes!: User[];
@@ -28,9 +27,12 @@ export class ListasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.usersService.refreshUsers$.subscribe(()=>this.getUsers())
     this.getUsers();
   }
   getUsers() {
+    console.log('geting Users');
+    
     this.isLoading = true;
     this.usersService.getUsers().subscribe({
       next: (r) => {

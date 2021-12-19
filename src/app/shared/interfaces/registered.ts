@@ -5,5 +5,6 @@ export interface Registered {
   password: string;
   address: string;
   cellPhone: string;
-  vehicle: string | null;
+  vehiculo: number | null;
+  vehicleName: string;
 }

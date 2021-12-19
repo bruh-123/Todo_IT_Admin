@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AlertService {
-
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar,) {}
   openFailureSnackBar(error: string) {
     this.snackBar.open(error, 'OK', {
       horizontalPosition: 'center',
@@ -35,4 +37,3 @@ export class AlertService {
     this.openSuccessSnackBar(message);
   }
 }
-
