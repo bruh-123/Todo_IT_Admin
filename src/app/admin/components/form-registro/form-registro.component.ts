@@ -7,7 +7,6 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
-  FormControl,
 } from '@angular/forms';
 @Component({
   selector: 'app-form-registro',
@@ -19,7 +18,6 @@ export class FormRegistroComponent implements OnInit {
   hide: boolean = true;
   isLoading: boolean = false;
   @ViewChild('myForm') myForm!: any;
-  rolControl = new FormControl('', Validators.required);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,7 +25,7 @@ export class FormRegistroComponent implements OnInit {
     private signupService: SignupService
   ) {
     this.signupForm = this.formBuilder.group({
-      rol: this.rolControl,
+      rol: ['', Validators.required],
       fullName: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
       password: ['', Validators.required],

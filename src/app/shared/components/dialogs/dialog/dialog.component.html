@@ -10,6 +10,7 @@
   <mat-form-field>
     <mat-label>Nombre Completo</mat-label>
     <input matInput formControlName="fullName" />
+    <mat-icon matSuffix>face</mat-icon>
   </mat-form-field>
   <!-- ---------EMAIL -->
   <mat-form-field class="field" appearance="fill">
@@ -22,12 +23,14 @@
   <mat-form-field class="field" appearance="fill">
     <mat-label>Dirección</mat-label>
     <input matInput formControlName="address" />
+    <mat-icon matSuffix>home</mat-icon>
   </mat-form-field>
   <!-- ---------TELEFONO -->
   <mat-form-field class="field" appearance="fill">
     <mat-label>Teléfono</mat-label>
     <span matPrefix>+54 &nbsp;</span>
     <input matInput formControlName="cellPhone" placeholder="01123456789" />
+    <mat-icon matSuffix>phone</mat-icon>
   </mat-form-field>
   <!-- ---------VEHICULO -->
   <mat-form-field appearance="fill" *ngIf="data.rol.id == 2">
@@ -37,6 +40,7 @@
       <mat-option value="Motocicleta">motocicleta</mat-option>
       <mat-option value="Automovil">automovil</mat-option>
     </mat-select>
+    <mat-icon matSuffix>motorcycle</mat-icon>
   </mat-form-field>
   <div class="actions" mat-dialog-actions>
     <button type="button" mat-raised-button mat-dialog-close>

@@ -10,9 +10,10 @@
       </mat-select>
     </mat-form-field>
     <!-- ---------NOMBRE -->
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>Nombre Completo</mat-label>
       <input matInput formControlName="fullName" />
+      <mat-icon matSuffix>face</mat-icon>
     </mat-form-field>
     <!-- ---------EMAIL -->
     <mat-form-field class="field" appearance="fill">
@@ -40,6 +41,7 @@
     <mat-form-field class="field" appearance="fill">
       <mat-label>Dirección</mat-label>
       <input matInput formControlName="address" />
+      <mat-icon matSuffix>home</mat-icon>
     </mat-form-field>
     <!-- ---------TELEFONO -->
     <mat-form-field class="field" appearance="fill">
@@ -51,19 +53,17 @@
         placeholder="01123456789"
         type="tel"
       />
+      <mat-icon matSuffix>phone</mat-icon>
     </mat-form-field>
     <!-- ---------VEHICULO -->
-    <mat-form-field appearance="fill" *ngIf="signupForm.value.rol==2">
+    <mat-form-field appearance="fill" *ngIf="signupForm.value.rol == 2">
       <mat-label>Vehiculo</mat-label>
-      <mat-select
-        
-        formControlName="vehiculo"
-        
-      >
-      <mat-option [value]="1">bicicleta</mat-option>
-      <mat-option [value]="2">motocicleta</mat-option>
-      <mat-option [value]="3">automovil</mat-option>
+      <mat-select formControlName="vehiculo">
+        <mat-option [value]="1">bicicleta</mat-option>
+        <mat-option [value]="2">motocicleta</mat-option>
+        <mat-option [value]="3">automovil</mat-option>
       </mat-select>
+      <mat-icon matSuffix>motorcycle</mat-icon>
     </mat-form-field>
     <button type="button" mat-raised-button (click)="clearForm()">
       cancelar
