@@ -1,4 +1,17 @@
-.toolbar{
-   width: 100%;
-   background-color: aqua;
+@use"../../../styles/styles-dir" as *;
+.toolbar {
+  background-color: clr(third);
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  height: 100%;
+}
+.mat-tab-link{
+   min-width: 100px;
+   color: white
+}
+.btn{
+   @include btn-first;
 }

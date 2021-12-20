@@ -10,8 +10,8 @@
 }
 
 @mixin main {
-  min-height: 100vh;
-  background-color: $third;
+  min-height: 100%;
+  background:center / cover no-repeat url("../../assets/background.svg")
 }
 
 @mixin btn-first {
@@ -28,7 +28,18 @@
       background-color: clr(second,dark);
     }
 }
+@mixin btn-cancel {
+  background-color: $cancel;
+  color: white;
+    &:hover{
+      background-color: clr(cancel,ligth);
+    }
+}
 
 @mixin font-weight {
   font-weight: 500;
+}
+@mixin card{
+  background-color: $cardBacground;
+
 }

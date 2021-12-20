@@ -16,4 +16,9 @@ $colors: (
     ligth: lighten($third, $lighten),
     dark: darken($third, $darken),
   ),
+  cancel: (
+    base: $cancel,
+    ligth: lighten($cancel, $lighten),
+    dark: darken($cancel, $darken),
+  ),
 );

@@ -1,0 +1,21 @@
+@use "../../../styles/styles-dir" as *;
+.registro {
+  @include flex-center;
+  width: 700px;
+  padding-top: 2.5rem;
+  background-color: $second;
+}
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+}
+.mat-form-field {
+  max-width: 100%;
+}
+.btn-cancel{
+   @include btn-cancel
+}
+.btn-accept{
+   @include btn-first;
+}

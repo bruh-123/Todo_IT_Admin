@@ -1,8 +1,8 @@
-<mat-form-field appearance="standard">
+<!-- <mat-form-field appearance="standard">
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" #input autocomplete="off" />
-</mat-form-field>
-<table mat-table [dataSource]="dataSource" matSort>
+</mat-form-field> -->
+<table class="tabla" mat-table [dataSource]="dataSource" matSort>
   <!-- ------------CLIENTE -->
   <ng-container matColumnDef="cliente">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</th>
@@ -113,13 +113,14 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   <!-- ------------NO MATCH FILTER -->
-  <tr class="mat-row" *matNoDataRow>
+  <!-- <tr class="mat-row" *matNoDataRow>
     <td class="mat-cell" colspan="4">
       No data matching the filter "{{ input.value }}"
     </td>
-  </tr>
+  </tr> -->
 </table>
 <mat-paginator
+  class="paginator"
   [pageSizeOptions]="[5, 10]"
   aria-label="Select page of users"
 ></mat-paginator>

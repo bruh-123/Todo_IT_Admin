@@ -1,0 +1,9 @@
+@use "../../../styles/styles-dir" as *;
+.main{
+   @include main;
+   @include flex-center;
+}
+.title{
+   margin-bottom: 2rem;
+   background-color: $second;
+}

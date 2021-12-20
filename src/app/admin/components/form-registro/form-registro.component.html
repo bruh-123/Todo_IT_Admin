@@ -1,6 +1,7 @@
 <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
-<mat-card *ngIf="!isLoading">
-  <form [formGroup]="signupForm" (ngSubmit)="registrar()" #myForm="ngForm">
+<mat-card class="registro" *ngIf="!isLoading">
+  <form class="form" [formGroup]="signupForm" (ngSubmit)="registrar()" #myForm="ngForm">
+    <div class="inputs">
     <!-- ---------ROL -->
     <mat-form-field appearance="fill">
       <mat-label>Rol del usuario</mat-label>
@@ -36,7 +37,7 @@
         }}</mat-icon>
       </button>
     </mat-form-field>
-
+    
     <!-- ---------DIRECCION -->
     <mat-form-field class="field" appearance="fill">
       <mat-label>Dirección</mat-label>
@@ -65,9 +66,12 @@
       </mat-select>
       <mat-icon matSuffix>motorcycle</mat-icon>
     </mat-form-field>
-    <button type="button" mat-raised-button (click)="clearForm()">
-      cancelar
-    </button>
-    <button type="submit" mat-raised-button>aceptar</button>
+    </div>
+    <mat-card-actions align="end">
+      <button type="button" class="btn-cancel" mat-raised-button color="warn" (click)="clearForm()">
+        cancelar
+      </button>
+      <button type="submit" class="btn-accept" mat-raised-button>aceptar</button>
+    </mat-card-actions>
   </form>
 </mat-card>

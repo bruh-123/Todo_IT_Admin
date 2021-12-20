@@ -1,0 +1,5 @@
+@use "../../../styles/styles-dir" as *;
+.tabla,
+.paginator {
+  background-color: $second;
+}

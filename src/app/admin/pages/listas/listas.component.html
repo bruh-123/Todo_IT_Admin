@@ -1,31 +1,36 @@
-<div class="btns">
-  <button mat-raised-button color="primary" (click)="rol = 'Clientes'">
-    Clientes
-  </button>
-  <button mat-raised-button color="primary" (click)="rol = 'Cadetes'">
-    Cadetes
-  </button>
-  <button mat-raised-button color="primary" (click)="rol = 'Borrados'">
-    Borrados
-  </button>
-</div>
-<h1>{{ rol }}</h1>
-<app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
-<!-- --------CLIENTES -->
-<app-tabla
-  *ngIf="!isLoading && rol == 'Clientes'"
-  [displayedColumns]="columnasLista"
-  [data]="dataClientes"
-></app-tabla>
-<!-- --------CADETES -->
-<app-tabla
-  *ngIf="!isLoading && rol == 'Cadetes'"
-  [displayedColumns]="columnasLista"
-  [data]="dataCadetes"
-></app-tabla>
-<!-- --------ELIMINADOS -->
-<app-tabla
-  *ngIf="!isLoading && rol=='Borrados'"
-  [displayedColumns]="columnasDelete"
-  [data]="dataDeleted"
-></app-tabla>
+<main class="main">
+  <mat-card  class="title">
+    <h1>{{ rol }}</h1>
+  </mat-card>
+  <div class="btns">
+    <button mat-raised-button color="primary" (click)="rol = 'Clientes'">
+      Clientes
+    </button>
+    <button mat-raised-button color="primary" (click)="rol = 'Cadetes'">
+      Cadetes
+    </button>
+    <button mat-raised-button color="primary" (click)="rol = 'Borrados'">
+      Borrados
+    </button>
+  </div>
+  
+  <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
+  <!-- --------CLIENTES -->
+  <app-tabla
+    *ngIf="!isLoading && rol == 'Clientes'"
+    [displayedColumns]="columnasLista"
+    [data]="dataClientes"
+  ></app-tabla>
+  <!-- --------CADETES -->
+  <app-tabla
+    *ngIf="!isLoading && rol == 'Cadetes'"
+    [displayedColumns]="columnasLista"
+    [data]="dataCadetes"
+  ></app-tabla>
+  <!-- --------ELIMINADOS -->
+  <app-tabla
+    *ngIf="!isLoading && rol == 'Borrados'"
+    [displayedColumns]="columnasDelete"
+    [data]="dataDeleted"
+  ></app-tabla>
+</main>

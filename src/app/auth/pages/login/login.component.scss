@@ -1,0 +1,6 @@
+@use "../../../styles/styles-dir" as *;
+
+.main{
+   @include flex-center;
+   @include main;
+}

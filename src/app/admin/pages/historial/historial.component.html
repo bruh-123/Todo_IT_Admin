@@ -1,2 +1,11 @@
-<app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
-<app-tabla *ngIf="!isLoading" [displayedColumns]="columnasHistorial" [data]="viajesHistorial" ></app-tabla>
+<main class="main">
+   <mat-card  class="title">
+    <h1>Historial de viajes</h1>
+  </mat-card>
+  <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
+  <app-tabla
+    *ngIf="!isLoading"
+    [displayedColumns]="columnasHistorial"
+    [data]="viajesHistorial"
+  ></app-tabla>
+</main>

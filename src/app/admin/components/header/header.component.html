@@ -1,32 +1,50 @@
 <mat-toolbar class="toolbar">
-  <!-- <img class="logo" src="../../../../assets/logo2.png" alt="Todo IT logo" /> -->
-  <button class="menu-btn" mat-raised-button aria-label="menu button">
+  <!-- <nav mat-tab-nav-bar>
+    
+  </nav> -->
+  <!-- <button class="menu-btn" mat-raised-button aria-label="menu button">
     <mat-icon>menu</mat-icon>
+  </button> -->
+  <img class="logo" src="../../../../assets/logo2.png" alt="Todo IT logo" />
+  <nav mat-tab-nav-bar mat-align-tabs="start">
+    <a
+      mat-tab-link
+      [routerLink]="['registro']"
+      routerLinkActive="router-link-active"
+      (click)="activeLink = 'registro'"
+      [active]="activeLink == 'registro'"
+      class="link"
+      >Registro</a
+    >
+    <a
+      mat-tab-link
+      [routerLink]="['viajes']"
+      routerLinkActive="router-link-active"
+      (click)="activeLink = 'viajes'"
+      [active]="activeLink == 'viajes'"
+      class="link"
+      >Viajes</a
+    >
+    <a
+      mat-tab-link
+      [routerLink]="['historial']"
+      routerLinkActive="router-link-active"
+      (click)="activeLink = 'historial'"
+      [active]="activeLink == 'historial'"
+      class="link"
+      >Historial</a
+    >
+    <a
+      mat-tab-link
+      [routerLink]="['listas']"
+      routerLinkActive="router-link-active"
+      (click)="activeLink = 'listas'"
+      [active]="activeLink == 'listas'"
+      class="link"
+      >Listas</a
+    >
+  </nav>
+  <button mat-raised-button class="btn" (click)="logout()">
+    Cerrar Sesión
   </button>
-
-  <a
-    [routerLink]="['registro']"
-    routerLinkActive="router-link-active"
-    class="link"
-    >Registro</a
-  >
-  <a
-    [routerLink]="['viajes']"
-    routerLinkActive="router-link-active"
-    class="link"
-    >Viajes</a
-  >
-  <a
-    [routerLink]="['historial']"
-    routerLinkActive="router-link-active"
-    class="link"
-    >Historial</a
-  >
-  <a
-    [routerLink]="['listas']"
-    routerLinkActive="router-link-active"
-    class="link"
-    >Listas</a
-  >
-  <a (click)="logout()" mat-button class="link">Cerrar Sesión</a>
 </mat-toolbar>

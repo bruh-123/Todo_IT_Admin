@@ -1,3 +1,10 @@
-.viajes{
-   background-color: bisque;
+@use "../../../styles/styles-dir" as *;
+.main {
+  @include main;
+  @include flex-center;
+  justify-content: flex-start;
+}
+.title {
+  margin: 2rem 0;
+  background-color: $second;
 }

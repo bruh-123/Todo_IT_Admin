@@ -5,7 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [],
@@ -15,12 +15,14 @@ import { MatTableModule } from '@angular/material/table';
     MatToolbarModule,
     MatTabsModule,
     MatTableModule,
+    MatExpansionModule,
   ],
   exports: [
     MaterialSharedModule,
     MatToolbarModule,
     MatTabsModule,
     MatTableModule,
+    MatExpansionModule,
   ],
 })
 export class MaterialAdminModule {}
