@@ -10,7 +10,8 @@ import { AlertService } from '../../../shared/services/alert.service';
 })
 export class ViajesComponent implements OnInit {
   isLoading: boolean = false;
-  columnasViajes: string[] = ['cliente', 'direccion', 'estado'];
+  rol: string = 'Activos';
+  columnasViajes: string[] = ['cliente', 'direccion', 'estado', 'editEstado'];
   viajesActivos!: Travel[];
   viajesPendientes!: Travel[];
   viajesCurso!: Travel[];
@@ -20,6 +21,7 @@ export class ViajesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.travelsService.refreshViajes$.subscribe(() => this.getViajes());
     this.getViajes();
   }
   getViajes() {

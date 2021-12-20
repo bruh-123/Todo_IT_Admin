@@ -1,0 +1,10 @@
+
+
+input.cadete::-webkit-outer-spin-button,
+input.cadete::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.cadete {
+  -moz-appearance: textfield;
+}

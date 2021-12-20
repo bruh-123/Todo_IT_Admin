@@ -19,7 +19,16 @@
   <ng-container matColumnDef="estado">
     <th mat-header-cell *matHeaderCellDef>Estado</th>
     <td mat-cell *matCellDef="let data">
-      {{ data.lastStatusdata | estado }}
+      {{ data.lastStatusTravel | estado }}
+    </td>
+  </ng-container>
+  <!-- ------------EDIT -->
+  <ng-container matColumnDef="editEstado">
+    <th mat-header-cell *matHeaderCellDef>Editar</th>
+    <td mat-cell *matCellDef="let data">
+      <button mat-icon-button (click)="openEdit(data)">
+        <mat-icon>edit</mat-icon>
+      </button>
     </td>
   </ng-container>
   <!-- ------------CADETE -->
@@ -74,15 +83,15 @@
     <th mat-header-cell *matHeaderCellDef>Vehiculo</th>
     <td mat-cell *matCellDef="let data">{{ data.vehicle?.name ?? "-" }}</td>
   </ng-container>
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Actions</th>
+  <ng-container matColumnDef="editUser">
+    <th mat-header-cell *matHeaderCellDef>Editar</th>
     <td mat-cell *matCellDef="let data">
       <button mat-icon-button (click)="openDialog(data)">
         <mat-icon>edit</mat-icon>
       </button>
     </td>
   </ng-container>
-  
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>

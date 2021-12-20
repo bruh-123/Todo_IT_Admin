@@ -51,12 +51,10 @@ export class FormRegistroComponent implements OnInit {
     }
     this.isLoading = true;
     let user = this.userData(this.signupForm.value);
-    console.log(user);
     this.signupService.registrar(user).subscribe({
       next: (res) => {
         this.isLoading = false;
         this.alertService.success('Usuario creado con éxito!');
-        console.log(res);
       },
       error: (e) => {
         this.isLoading = false;

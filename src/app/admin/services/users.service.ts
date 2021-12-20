@@ -12,14 +12,17 @@ export class UsersService {
   get refreshUsers$() {
     return this._refreshUsers$;
   }
-  User(rol: number): Observable<User[]> {
+  singleUser(id:number):Observable<User> {
+    return this.http.get<User>(`api/Users/${id}?userOperation=1`);
+  }
+  Users(rol: number): Observable<User[]> {
     return this.http
       .get<User[]>('api/Users?userOperation=1')
       .pipe(map((i) => i.filter((u) => u.rol.id == rol)));
   }
   getUsers() {
-    let cliente = this.User(3);
-    let cadete = this.User(2);
+    let cliente = this.Users(3);
+    let cadete = this.Users(2);
     return forkJoin([cliente, cadete]);
   }
 }

@@ -8,6 +8,8 @@ import { AlertService } from '../../../shared/services/alert.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialogs/dialog/dialog.component';
 import { UsersService } from '../../services/users.service';
+import { EditStatusComponent } from '../../../shared/components/dialogs/edit-status/edit-status.component';
+import { TravelsService } from '../../services/travels.service';
 
 @Component({
   selector: 'app-tabla',
@@ -29,7 +31,8 @@ export class TablaComponent implements OnInit {
   constructor(
     private alertService: AlertService,
     private dialog: MatDialog,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private travelsService: TravelsService
   ) {}
 
   ngOnInit(): void {
@@ -44,14 +47,31 @@ export class TablaComponent implements OnInit {
       : viaje.travelEquipmentDTOs[viaje.travelEquipmentDTOs.length - 1];
   }
 
+  openEdit(data: Travel) {
+    const editRef = this.dialog.open(EditStatusComponent, {
+      data,
+      width: '50%',
+      disableClose: true,
+    });
+    editRef
+      .afterClosed()
+      .subscribe((r) => {
+        if (r) {
+          this.travelsService.refreshViajes$.next()
+        }
+      });
+  }
+
   openDialog(data: Travel | User) {
     const dialogRef = this.dialog.open(DialogComponent, {
       data,
       width: '50%',
       disableClose: true,
     });
-    dialogRef
-      .afterClosed()
-      .subscribe(() => this.usersService.refreshUsers$.next());
+    dialogRef.afterClosed().subscribe((r) => {
+      if (r) {
+        this.usersService.refreshUsers$.next();
+      }
+    });
   }
 }

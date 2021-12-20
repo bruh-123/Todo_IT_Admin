@@ -1,18 +1,22 @@
-  <div class="btns">
-     <button mat-raised-button color="primary" (click)="rol=true">Clientes</button>
-     <button mat-raised-button color="primary" (click)="rol=false">Cadetes</button>
-  </div>
-  <h1>{{rol?'Clientes':'Cadetes'}}</h1>
-  <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
-  <!-- --------CLIENTES -->
-  <app-tabla
+<div class="btns">
+  <button mat-raised-button color="primary" (click)="rol = true">
+    Clientes
+  </button>
+  <button mat-raised-button color="primary" (click)="rol = false">
+    Cadetes
+  </button>
+</div>
+<h1>{{ rol ? "Clientes" : "Cadetes" }}</h1>
+<app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
+<!-- --------CLIENTES -->
+<app-tabla
   *ngIf="!isLoading && rol"
   [displayedColumns]="columnasLista"
   [data]="dataClientes"
-  ></app-tabla>
-  <!-- --------CADETES -->
-  <app-tabla
-    *ngIf="!isLoading && !rol"
-    [displayedColumns]="columnasLista"
-    [data]="dataCadetes"
-  ></app-tabla>
+></app-tabla>
+<!-- --------CADETES -->
+<app-tabla
+  *ngIf="!isLoading && !rol"
+  [displayedColumns]="columnasLista"
+  [data]="dataCadetes"
+></app-tabla>

@@ -1,26 +1,31 @@
-<mat-tab-group class="viajes" dynamicHeight mat-align-tabs="center">
-  <mat-tab label="Activos">
-    <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
-    <app-tabla
-      *ngIf="!isLoading"
-      [displayedColumns]="columnasViajes"
-      [data]="viajesActivos"
-    ></app-tabla>
-  </mat-tab>
-  <mat-tab label="Pendientes">
-    <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
-    <app-tabla
-      *ngIf="!isLoading"
-      [displayedColumns]="columnasViajes"
-      [data]="viajesPendientes"
-    ></app-tabla>
-  </mat-tab>
-  <mat-tab label="En curso">
-    <app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
-    <app-tabla
-      *ngIf="!isLoading"
-      [displayedColumns]="columnasViajes"
-      [data]="viajesCurso"
-    ></app-tabla>
-  </mat-tab>
-</mat-tab-group>
+<div class="btns">
+  <button mat-raised-button color="primary" (click)="rol = 'Activos'">
+    Activos
+  </button>
+  <button mat-raised-button color="primary" (click)="rol = 'Pendientes'">
+    Pendientes
+  </button>
+  <button mat-raised-button color="primary" (click)="rol = 'En Curso'">
+    En Curso
+  </button>
+</div>
+<h1>{{ rol }}</h1>
+<!-- --------ACTIVOS -->
+<app-spinner *ngIf="isLoading" [diameter]="100"></app-spinner>
+<app-tabla
+  *ngIf="!isLoading && rol=='Activos'"
+  [displayedColumns]="columnasViajes"
+  [data]="viajesActivos"
+></app-tabla>
+<!-- --------PENDIENTES -->
+<app-tabla
+  *ngIf="!isLoading && rol=='Pendientes'"
+  [displayedColumns]="columnasViajes"
+  [data]="viajesPendientes"
+></app-tabla>
+<!-- --------EN CURSO -->
+<app-tabla
+  *ngIf="!isLoading && rol=='En Curso'"
+  [displayedColumns]="columnasViajes"
+  [data]="viajesCurso"
+></app-tabla>

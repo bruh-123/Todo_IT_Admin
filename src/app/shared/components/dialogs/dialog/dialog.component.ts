@@ -23,24 +23,22 @@ export class DialogComponent implements OnInit {
     private alertService: AlertService
   ) {
     let vehicleValidator = this.data.rol.id == 2 ? [Validators.required] : [];
-    this.editForm = formBuilder.group({
+    this.editForm = this.formBuilder.group({
       fullName: [data.fullName, Validators.required],
       email: [data.email, [Validators.email, Validators.required]],
       address: [data.address, Validators.required],
       cellPhone: [
         data.cellPhone,
-        [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)],
+        [Validators.required, Validators.pattern(/^-?([0-9]\d*)?$/)],
       ],
       vehicleName: [data.vehicle?.name, vehicleValidator],
     });
   }
 
-  cancelar(): void {
-    this.dialogRef.close();
-  }
+  
   ngOnInit(): void {
   }
-  editar() {
+  editar() {    
     if (this.editForm.invalid) {
       this.invalidForm = true;
       return;
@@ -50,7 +48,7 @@ export class DialogComponent implements OnInit {
     let data = this.userData(this.editForm.value);
     this.SignupService.registrar(data).subscribe({
       next: () => {
-        this.dialogRef.close();
+        this.dialogRef.close(true);
         this.alertService.success('Usuario editado exitosamente');
         this.isLoading = false;
       },

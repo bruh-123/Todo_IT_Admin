@@ -1,0 +1,47 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<ng-container *ngIf="!isLoading">
+  <h1 mat-dialog-title>Editando estado de viaje</h1>
+  <div mat-dialog-content>
+    <p>
+      Estado actual: <strong>{{ data.lastStatusTravel | estado }}</strong>
+    </p>
+    <p>
+      Cadete actual:
+      <strong>{{
+        data.travelEquipmentDTOs[data.travelEquipmentDTOs.length - 1].cadete
+          ?.fullName ?? "sin cadete"
+      }}</strong>
+    </p>
+    <form [formGroup]="travelForm" (ngSubmit)="editar()">
+      <mat-form-field>
+        <mat-label>Nuevo Estado</mat-label>
+        <mat-select formControlName="estado">
+          <mat-option *ngFor="let estado of estados" [value]="estado">
+            {{ estado | estado }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>id Cadete</mat-label>
+        <input
+          class="cadete"
+          min="2"
+          type="number"
+          matInput
+          formControlName="cadete"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Observaciones</mat-label>
+        <textarea matInput formControlName="obs" maxlength="50" #obs></textarea>
+        <mat-hint align="end">{{ obs.value.length }} / 50</mat-hint>
+      </mat-form-field>
+      <div class="btns">
+        <button type="button" mat-raised-button mat-dialog-close>
+          cancelar
+        </button>
+        <button type="submit" mat-raised-button>aceptar</button>
+      </div>
+    </form>
+  </div>
+</ng-container>

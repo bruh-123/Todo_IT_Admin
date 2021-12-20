@@ -1,5 +1,11 @@
 <app-spinner *ngIf="isLoading"></app-spinner>
-<form *ngIf="!isLoading" [formGroup]="editForm" (ngSubmit)="editar()">
+<h1 mat-dialog-title>Editando {{ data.rol.id == 2 ? "cadete" : "cliente" }}</h1>
+<form
+  *ngIf="!isLoading"
+  [formGroup]="editForm"
+  (ngSubmit)="editar()"
+  mat-dialog-content
+>
   <!-- ---------NOMBRE -->
   <mat-form-field>
     <mat-label>Nombre Completo</mat-label>
@@ -32,6 +38,10 @@
       <mat-option value="Automovil">automovil</mat-option>
     </mat-select>
   </mat-form-field>
-  <button type="button" mat-raised-button (click)="cancelar()">cancelar</button>
-  <button type="submit" mat-raised-button>aceptar</button>
+  <div class="actions" mat-dialog-actions>
+    <button type="button" mat-raised-button mat-dialog-close>
+      cancelar
+    </button>
+    <button type="submit" mat-raised-button>aceptar</button>
+  </div>
 </form>
