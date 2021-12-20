@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Travel } from 'src/app/shared/interfaces/travels';
 import { TravelsService } from '../../services/travels.service';
 import { AlertService } from '../../../shared/services/alert.service';
+import { SortTravel } from '../../utils/sort';
 
 @Component({
   selector: 'app-viajes',
@@ -47,6 +48,9 @@ export class ViajesComponent implements OnInit {
           ...r[6],
           ...r[7],
         ];
+        this.viajesActivos = SortTravel(this.viajesActivos);
+        this.viajesPendientes = SortTravel(this.viajesPendientes);
+        this.viajesCurso = SortTravel(this.viajesCurso);
         this.isLoading = false;
       },
       error: (e) => {

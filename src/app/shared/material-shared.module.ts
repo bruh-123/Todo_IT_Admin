@@ -9,6 +9,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -25,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSelectModule,
+    MatPaginatorModule,
   ],
   exports: [
     MatCardModule,
@@ -36,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSelectModule,
+    MatPaginatorModule,
   ],
 })
 export class MaterialSharedModule {}

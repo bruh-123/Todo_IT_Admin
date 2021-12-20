@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../../shared/interfaces/users';
 import { UsersService } from '../../services/users.service';
 import { AlertService } from '../../../shared/services/alert.service';
+import { SortUser } from '../../utils/sort';
 
 @Component({
   selector: 'app-listas',
@@ -49,6 +50,10 @@ export class ListasComponent implements OnInit {
         this.dataClientes = [...r[0]];
         this.dataCadetes = [...r[1]];
         this.dataDeleted = [...r[2], ...r[3]];
+        this.dataClientes = SortUser(this.dataClientes)
+        this.dataCadetes = SortUser(this.dataCadetes);
+        this.dataDeleted = SortUser(this.dataDeleted);
+        
         this.isLoading = false;
       },
       error: (e) => {

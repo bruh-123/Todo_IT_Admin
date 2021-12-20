@@ -1,25 +1,34 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { BehaviorSubject, filter } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Travel } from '../../../shared/interfaces/travels';
 import { Dto } from '../../../shared/interfaces/dto';
 import { User } from '../../../shared/interfaces/users';
-import { AlertService } from '../../../shared/services/alert.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialogs/dialog/dialog.component';
 import { UsersService } from '../../services/users.service';
 import { EditStatusComponent } from '../../../shared/components/dialogs/edit-status/edit-status.component';
 import { TravelsService } from '../../services/travels.service';
 import { DeleteComponent } from '../../../shared/components/dialogs/delete/delete.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-tabla',
   templateUrl: './tabla.component.html',
   styleUrls: ['./tabla.component.scss'],
 })
-export class TablaComponent implements OnInit {
+export class TablaComponent implements OnInit, AfterViewInit {
   @Input() displayedColumns: string[] = [];
   dataSource!: MatTableDataSource<Travel | User>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   private _data = new BehaviorSubject<Travel[] | User[]>([]);
 
   @Input()
@@ -39,6 +48,18 @@ export class TablaComponent implements OnInit {
     this._data.subscribe((resp) => {
       this.dataSource = new MatTableDataSource<Travel | User>(resp);
     });
+  }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   dto(viaje: Travel, num: number): Dto {
