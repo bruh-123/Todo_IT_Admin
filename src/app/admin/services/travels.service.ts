@@ -14,7 +14,9 @@ export class TravelsService {
   }
 
   getViajes(status: number): Observable<Travel[]> {
-    return this.http.get<Travel[]>('/api/Travel/1/' + status);
+    return this.http.get<Travel[]>(
+      'http://logistica.asambleas.cl/api/Travel/1/' + status
+    );
   }
   getActivos() {
     let activos1 = this.getViajes(1);
@@ -39,7 +41,7 @@ export class TravelsService {
   }
   postViaje(idT: number, newEstado: number, idC: number, obs: string) {
     return this.http.post(
-      `api/Travel?travelId=${idT}&statusTravel=${newEstado}&userOperation=1&cadeteId=${idC}&isReasigned=false&observations=${obs}`,
+      `http://logistica.asambleas.cl/api/Travel?travelId=${idT}&statusTravel=${newEstado}&userOperation=1&cadeteId=${idC}&isReasigned=false&observations=${obs}`,
       obs
     );
   }

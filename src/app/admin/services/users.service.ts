@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/shared/interfaces/users';
-import { filter, map, Observable, forkJoin, Subject } from 'rxjs';
+import {  map, Observable, forkJoin, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,11 +13,13 @@ export class UsersService {
     return this._refreshUsers$;
   }
   singleUser(id: number): Observable<User> {
-    return this.http.get<User>(`api/Users/${id}?userOperation=1`);
+    return this.http.get<User>(
+      `http://logistica.asambleas.cl/api/Users/${id}?userOperation=1`
+    );
   }
   Users(rol: number, deleted: boolean): Observable<User[]> {
     return this.http
-      .get<User[]>('api/Users?userOperation=1')
+      .get<User[]>('http://logistica.asambleas.cl/api/Users?userOperation=1')
       .pipe(
         map((i) => i.filter((u) => u.rol.id == rol && u.isDeleted == deleted))
       );

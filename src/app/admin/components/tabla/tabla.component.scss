@@ -1,5 +1,17 @@
 @use "../../../styles/styles-dir" as *;
+:host {
+  width: 70%;
+  margin-bottom: 3rem;
+}
 .tabla,
 .paginator {
   background-color: $second;
+  width: 100%;
 }
+
+th {
+  font-size: 1.25rem;
+  padding: 0;
+}
+// td {
+// }

@@ -9,6 +9,6 @@ export class SignupService {
   constructor(private http: HttpClient) {}
 
   registrar(user: User) {
-    return this.http.post('api/Users', user);
+    return this.http.post('http://logistica.asambleas.cl/api/Users', user);
   }
 }
