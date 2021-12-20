@@ -7,6 +7,7 @@ import { DialogComponent } from './dialogs/dialog/dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditStatusComponent } from './dialogs/edit-status/edit-status.component';
 import { EstadoPipe } from '../../admin/pipes/estado';
+import { DeleteComponent } from './dialogs/delete/delete.component';
 
 
 
@@ -17,6 +18,7 @@ import { EstadoPipe } from '../../admin/pipes/estado';
     DialogComponent,
     EditStatusComponent,
     EstadoPipe,
+    DeleteComponent,
   ],
   imports: [CommonModule, MaterialSharedModule, ReactiveFormsModule],
   exports: [SpinnerComponent, EstadoPipe],

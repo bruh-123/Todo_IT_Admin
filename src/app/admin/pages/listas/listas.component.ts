@@ -10,7 +10,7 @@ import { AlertService } from '../../../shared/services/alert.service';
 })
 export class ListasComponent implements OnInit {
   isLoading: boolean = false;
-  rol: boolean = true;
+  rol: string = 'Clientes';
   columnasLista: string[] = [
     'nombre',
     'direccionUser',
@@ -18,9 +18,19 @@ export class ListasComponent implements OnInit {
     'email',
     'vehiculo',
     'editUser',
+    'deleteUser',
+  ];
+  columnasDelete: string[] = [
+    'nombre',
+    'direccionUser',
+    'telefono',
+    'email',
+    'vehiculo',
+    'restoreUser',
   ];
   dataClientes!: User[];
   dataCadetes!: User[];
+  dataDeleted!: User[];
   constructor(
     private usersService: UsersService,
     private alertService: AlertService
@@ -38,6 +48,7 @@ export class ListasComponent implements OnInit {
       next: (r) => {
         this.dataClientes = [...r[0]];
         this.dataCadetes = [...r[1]];
+        this.dataDeleted = [...r[2], ...r[3]];
         this.isLoading = false;
       },
       error: (e) => {

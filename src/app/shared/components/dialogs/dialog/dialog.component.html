@@ -1,51 +1,46 @@
 <app-spinner *ngIf="isLoading"></app-spinner>
 <h1 mat-dialog-title>Editando {{ data.rol.id == 2 ? "cadete" : "cliente" }}</h1>
-<form
-  *ngIf="!isLoading"
-  [formGroup]="editForm"
-  (ngSubmit)="editar()"
-  mat-dialog-content
->
+<form *ngIf="!isLoading" [formGroup]="editForm" (ngSubmit)="editar()">
   <!-- ---------NOMBRE -->
-  <mat-form-field>
-    <mat-label>Nombre Completo</mat-label>
-    <input matInput formControlName="fullName" />
-    <mat-icon matSuffix>face</mat-icon>
-  </mat-form-field>
-  <!-- ---------EMAIL -->
-  <mat-form-field class="field" appearance="fill">
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="email" value="bruno@gmail" />
-    <mat-icon matSuffix>alternate_email</mat-icon>
-  </mat-form-field>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Nombre Completo</mat-label>
+      <input matInput formControlName="fullName" />
+      <mat-icon matSuffix>face</mat-icon>
+    </mat-form-field>
+    <!-- ---------EMAIL -->
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" value="bruno@gmail" />
+      <mat-icon matSuffix>alternate_email</mat-icon>
+    </mat-form-field>
 
-  <!-- ---------DIRECCION -->
-  <mat-form-field class="field" appearance="fill">
-    <mat-label>Dirección</mat-label>
-    <input matInput formControlName="address" />
-    <mat-icon matSuffix>home</mat-icon>
-  </mat-form-field>
-  <!-- ---------TELEFONO -->
-  <mat-form-field class="field" appearance="fill">
-    <mat-label>Teléfono</mat-label>
-    <span matPrefix>+54 &nbsp;</span>
-    <input matInput formControlName="cellPhone" placeholder="01123456789" />
-    <mat-icon matSuffix>phone</mat-icon>
-  </mat-form-field>
-  <!-- ---------VEHICULO -->
-  <mat-form-field appearance="fill" *ngIf="data.rol.id == 2">
-    <mat-label>Vehiculo</mat-label>
-    <mat-select formControlName="vehicleName">
-      <mat-option value="Bicicleta">bicicleta</mat-option>
-      <mat-option value="Motocicleta">motocicleta</mat-option>
-      <mat-option value="Automovil">automovil</mat-option>
-    </mat-select>
-    <mat-icon matSuffix>motorcycle</mat-icon>
-  </mat-form-field>
-  <div class="actions" mat-dialog-actions>
-    <button type="button" mat-raised-button mat-dialog-close>
-      cancelar
-    </button>
+    <!-- ---------DIRECCION -->
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Dirección</mat-label>
+      <input matInput formControlName="address" />
+      <mat-icon matSuffix>home</mat-icon>
+    </mat-form-field>
+    <!-- ---------TELEFONO -->
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Teléfono</mat-label>
+      <span matPrefix>+54 &nbsp;</span>
+      <input matInput formControlName="cellPhone" placeholder="01123456789" />
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+    <!-- ---------VEHICULO -->
+    <mat-form-field appearance="fill" *ngIf="data.rol.id == 2">
+      <mat-label>Vehiculo</mat-label>
+      <mat-select formControlName="vehicleName">
+        <mat-option value="Bicicleta">bicicleta</mat-option>
+        <mat-option value="Motocicleta">motocicleta</mat-option>
+        <mat-option value="Automovil">automovil</mat-option>
+      </mat-select>
+      <mat-icon matSuffix>motorcycle</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="actions" mat-dialog-actions align="end">
+    <button type="button" mat-raised-button mat-dialog-close>cancelar</button>
     <button type="submit" mat-raised-button>aceptar</button>
   </div>
 </form>

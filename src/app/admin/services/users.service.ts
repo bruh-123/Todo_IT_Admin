@@ -12,17 +12,21 @@ export class UsersService {
   get refreshUsers$() {
     return this._refreshUsers$;
   }
-  singleUser(id:number):Observable<User> {
+  singleUser(id: number): Observable<User> {
     return this.http.get<User>(`api/Users/${id}?userOperation=1`);
   }
-  Users(rol: number): Observable<User[]> {
+  Users(rol: number, deleted: boolean): Observable<User[]> {
     return this.http
       .get<User[]>('api/Users?userOperation=1')
-      .pipe(map((i) => i.filter((u) => u.rol.id == rol)));
+      .pipe(
+        map((i) => i.filter((u) => u.rol.id == rol && u.isDeleted == deleted))
+      );
   }
   getUsers() {
-    let cliente = this.Users(3);
-    let cadete = this.Users(2);
-    return forkJoin([cliente, cadete]);
+    let cliente = this.Users(3, false);
+    let cadete = this.Users(2, false);
+    let deletedUsers1 = this.Users(2, true);
+    let deletedUsers2 = this.Users(3, true);
+    return forkJoin([cliente, cadete, deletedUsers1, deletedUsers2]);
   }
 }

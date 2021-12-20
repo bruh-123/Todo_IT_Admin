@@ -10,6 +10,7 @@ import { DialogComponent } from 'src/app/shared/components/dialogs/dialog/dialog
 import { UsersService } from '../../services/users.service';
 import { EditStatusComponent } from '../../../shared/components/dialogs/edit-status/edit-status.component';
 import { TravelsService } from '../../services/travels.service';
+import { DeleteComponent } from '../../../shared/components/dialogs/delete/delete.component';
 
 @Component({
   selector: 'app-tabla',
@@ -29,7 +30,6 @@ export class TablaComponent implements OnInit {
     return this._data.getValue();
   }
   constructor(
-    private alertService: AlertService,
     private dialog: MatDialog,
     private usersService: UsersService,
     private travelsService: TravelsService
@@ -53,22 +53,33 @@ export class TablaComponent implements OnInit {
       width: '50%',
       disableClose: true,
     });
-    editRef
-      .afterClosed()
-      .subscribe((r) => {
-        if (r) {
-          this.travelsService.refreshViajes$.next()
-        }
-      });
+    editRef.afterClosed().subscribe((r) => {
+      if (r) {
+        this.travelsService.refreshViajes$.next();
+      }
+    });
   }
 
-  openDialog(data: Travel | User) {
+  openDialog(data: User) {
     const dialogRef = this.dialog.open(DialogComponent, {
       data,
       width: '50%',
       disableClose: true,
     });
     dialogRef.afterClosed().subscribe((r) => {
+      if (r) {
+        this.usersService.refreshUsers$.next();
+      }
+    });
+  }
+
+  openDelete(data: User) {
+    const deleteRef = this.dialog.open(DeleteComponent, {
+      data,
+      width: '50%',
+      autoFocus: false,
+    });
+    deleteRef.afterClosed().subscribe((r) => {
       if (r) {
         this.usersService.refreshUsers$.next();
       }
